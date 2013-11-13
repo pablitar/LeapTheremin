@@ -17,8 +17,35 @@
 	<body>
 		<div class="container">
 			<h1>Leap Simple Theremin</h1>
+			<div class="row config-container">
+				<div class="span3">
+					<fieldset>
+						<label for="minPitch">Minimum Pitch Note</label>
+						<select name="minPitch" id="minPitch"></select>
+
+					</fieldset>
+				</div>
+				<div class="span3">
+					<fieldset>
+						<label for="maxPitch">Maximum Pitch Note</label>
+						<select name="maxPitch" id="maxPitch"></select>
+					</fieldset>
+				</div>
+				<div class="span3">
+					<fieldset>
+						<label for="oscilType">Signal type</label>
+						<select name="oscilType" id="oscilType">
+							<option value="triangle">Triangle</option>
+							<option value="square">Square</option>
+							<option value="sine">Sine</option>
+							<option value="sawtooth">Sawtooth</option>
+						</select>
+					</fieldset>
+				</div>
+			</div>
 			<div class="row">
-				<div class="freq-container">
+				<div class="span12">
+					<div class="freq-container"></div>
 				</div>
 			</div>
 		</div>
@@ -30,6 +57,7 @@
 		<script src="js/behaviours.js"></script>
 		<script src="js/frequencyViewer.js"></script>
 		<script src="js/theremin.js"></script>
+		<script src="js/ConfigurationForm.js"></script>
 		<script src="js/main.js"></script>
 
 	</body>

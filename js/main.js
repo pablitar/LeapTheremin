@@ -6,9 +6,10 @@
 	
 	var self = window.Main = {
 		connected : false,
-		stabilized : false
+		stabilized : false,
+		theremin : new Theremin()
 	};
-
+	
 	self.isConnected = function() {
 		return self.connected;
 	};
@@ -42,11 +43,9 @@
 			var relativeHeight = Math.max((position[Y] - 100) / 300, 0);
 			var relativeDepth = Math.max(((-position[Z] + 100) / 30),0);
 			
-			console.log(relativeDepth);
-			
-			Theremin.play(relativeHeight, relativeDepth);
+			self.theremin.play(relativeHeight, relativeDepth);
 		} else {
-			Theremin.stop();
+			self.theremin.stop();
 		}
 	};
 
@@ -73,7 +72,7 @@
 	
 	self.restartController();
 	
-	var freqView = new FrequencyViewer('.freq-container', Theremin);
+	var freqView = new FrequencyViewer('.freq-container', self.theremin);
 	
-	freqView.populateTable();
+	var configForm = new ConfigurationForm('.config-container', self.theremin);
 })();
