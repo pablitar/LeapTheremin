@@ -34,7 +34,7 @@
 	self.checkHands = function(frame) {
 		if(frame.hands.length > 0) {
 			var hand = frame.hands[0];
-			var relativeHeight = hand.palmPosition[Y] / 200;
+			var relativeHeight = hand.palmPosition[Y] / 300;
 			var relativeApperture = Math.max(((hand.sphereRadius - 60) / 40),0);
 			
 			Theremin.play(relativeHeight, relativeApperture);
@@ -65,4 +65,8 @@
 	};
 	
 	self.restartController();
+	
+	var freqView = new FrequencyViewer('.freq-container', Theremin);
+	
+	freqView.populateTable();
 })();

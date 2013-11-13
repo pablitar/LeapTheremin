@@ -1,0 +1,15 @@
+.freq {
+	table-layout: fixed;
+	width: 100%;
+}
+
+.freq-container {
+	position: relative;
+}
+
+.freq td {
+	border: 1px solid;
+	padding: 5px;
+	font-weight: bold;
+	font-size: 20px;	
+}
