@@ -1,8 +1,8 @@
 (function(){
 	
 	var self = window.Theremin = $.extend({
-		minPitch: 40,
-		maxPitch: 60,
+		minPitch: 60,
+		maxPitch: 84,
 		snap : true 
 	}, behaviours.Events);
 	
@@ -14,7 +14,7 @@
 		return semitone + scale;
 	};
 	
-	self.oscil = new WX.Oscil({type:'triangle'});
+	self.oscil = new WX.Oscil({type:'sine'});
 	
 	window.oscil = self.oscil;
 	
@@ -59,6 +59,5 @@
 		self.oscil.active = false;
 		self.trigger('stoped');
 	};
-	
 	
 })();

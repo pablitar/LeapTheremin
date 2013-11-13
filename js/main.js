@@ -5,7 +5,8 @@
 	var Z = 2;
 	
 	var self = window.Main = {
-		connected : false
+		connected : false,
+		stabilized : false
 	};
 
 	self.isConnected = function() {
@@ -31,13 +32,19 @@
 		}
 	};
 	
+	self.getPosition = function(aHand) {
+		return self.stabilized?aHand.stabilizedPalmPosition:aHand.palmPosition;
+	};
+	
 	self.checkHands = function(frame) {
 		if(frame.hands.length > 0) {
-			var hand = frame.hands[0];
-			var relativeHeight = hand.palmPosition[Y] / 300;
-			var relativeApperture = Math.max(((hand.sphereRadius - 60) / 40),0);
+			var position = self.getPosition(frame.hands[0]);
+			var relativeHeight = Math.max((position[Y] - 100) / 300, 0);
+			var relativeDepth = Math.max(((-position[Z] + 100) / 30),0);
 			
-			Theremin.play(relativeHeight, relativeApperture);
+			console.log(relativeDepth);
+			
+			Theremin.play(relativeHeight, relativeDepth);
 		} else {
 			Theremin.stop();
 		}

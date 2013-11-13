@@ -6,14 +6,9 @@
 		this.theremin = theremin;
 
 		this.populateTable = function() {
-			var $row = this.$el.find('tr');
-			$row.empty();
-			for (var i = theremin.minPitch; i < theremin.maxPitch; i++) {
-				$row.append(this.createPitchCell(i));
-			}
-
-			if (this.pointer) {
-				this.pointer.parentNode.removeChild(this.pointer);
+			this.$el.empty();
+			for (var i = this.theremin.minPitch; i <= this.theremin.maxPitch; i++) {
+				this.$el.append(this.createPitchElement(i));
 			}
 
 			this.pointer = this.createPointer();
@@ -54,12 +49,19 @@
 			this.showPointer();
 			this.updatePointerPosition(relativeFrequency);
 		};
+		
+		this.getPitchPosition = function(pitch) {
+			var pitchRelativePosition = (WX.pitch2freq(pitch) - this.theremin.minFrequency()) / (this.theremin.maxFrequency() - this.theremin.minFrequency());
+			return pitchRelativePosition * this.$el.width();
+		};
 
-		this.createPitchCell = function(pitch) {
-			var td = document.createElement('td');
-			td.innerText = this.theremin.getNoteName(pitch);
+		this.createPitchElement = function(pitch) {
+			var div = document.createElement('div');
+			div.className =  'pitch-element';
+			div.innerText = this.theremin.getNoteName(pitch);
+			div.style.left = this.getPitchPosition(pitch) + "px";
 
-			return td;
+			return div;
 		};
 
 		this.populateTable();
