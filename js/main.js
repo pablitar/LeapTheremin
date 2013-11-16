@@ -41,7 +41,7 @@
 		if(frame.hands.length > 0) {
 			var position = self.getPosition(frame.hands[0]);
 			var relativeHeight = Math.max((position[Y] - 100) / 300, 0);
-			var relativeDepth = Math.max(((-position[Z] + 100) / 30),0);
+			var relativeDepth = Math.max(((-position[Z] + 100) / 60),0);
 			
 			self.theremin.play(relativeHeight, relativeDepth);
 		} else {

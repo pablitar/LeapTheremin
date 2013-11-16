@@ -41,6 +41,19 @@ function ConfigurationForm(containerSelector, theremin) {
 		return transform(this.$el.find(selector).val());
 	};
 	
+	this.bindCheckbox = function(checkboxSelector, object, value) {
+		var checkbox = this.$el.find(checkboxSelector);
+		checkbox.prop('checked', object[value]);
+		
+		checkbox.on('change', function() {
+			object[value] = checkbox.prop('checked');
+		});
+	};
+	
+	this.bindSnap = function() {
+		this.bindCheckbox('#snap', this.theremin, 'snap');
+	};
+	
 	this.bindSelects = function() {
 		this.$el.find(maxPitchSelector + ',' + minPitchSelector).on('change', function(){
 			self.theremin.setRange(self.getValue(minPitchSelector, parseInt), self.getValue(maxPitchSelector, parseInt));
@@ -58,6 +71,7 @@ function ConfigurationForm(containerSelector, theremin) {
 	this.refreshSelects();
 	this.bindSelects();
 	this.bindSignalType();
+	this.bindSnap();
 	this.theremin.on('frequencyRange', function(){
 		self.refreshSelects();
 	});
