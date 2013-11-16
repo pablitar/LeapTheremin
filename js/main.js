@@ -43,7 +43,7 @@
 			var relativeHeight = Math.max((position[Y] - 100) / 300, 0);
 			var relativeDepth = Math.max(((-position[Z] + 100) / 60),0);
 			
-			self.theremin.play(relativeHeight, relativeDepth);
+			self.theremin.play(relativeHeight, 1);
 		} else {
 			self.theremin.stop();
 		}
