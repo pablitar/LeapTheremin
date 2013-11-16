@@ -17,24 +17,24 @@
 	<body>
 		<div class="container">
 			<h1>Leap Simple Theremin</h1>
-			<div class="row config-container">
+			<div class="row config-container conf1">
 				<div class="span3">
 					<fieldset>
 						<label for="minPitch">Minimum Pitch Note</label>
-						<select name="minPitch" id="minPitch"></select>
+						<select name="minPitch" id="minPitch" class="minPitch"></select>
 
 					</fieldset>
 				</div>
 				<div class="span3">
 					<fieldset>
 						<label for="maxPitch">Maximum Pitch Note</label>
-						<select name="maxPitch" id="maxPitch"></select>
+						<select name="maxPitch" id="maxPitch" class="maxPitch"></select>
 					</fieldset>
 				</div>
 				<div class="span3">
 					<fieldset>
 						<label for="oscilType">Signal type</label>
-						<select name="oscilType" id="oscilType">
+						<select name="oscilType" id="oscilType" class="oscilType">
 							<option value="triangle">Triangle</option>
 							<option value="square">Square</option>
 							<option value="sine">Sine</option>
@@ -45,13 +45,52 @@
 				<div class="span3">
 					<fieldset>
 						<label for="snap">Snap</label>
-						<input type="checkbox" name="snap" id="snap" />
+						<input type="checkbox" name="snap" id="snap" class="snap" />
 					</fieldset>
 				</div>
 			</div>
 			<div class="row">
 				<div class="span12">
-					<div class="freq-container"></div>
+					<div class="freq-container freq1"></div>
+				</div>
+			</div>
+
+			<div class="row config-container conf2">
+				<div class="span3">
+					<fieldset>
+						<label for="minPitch2">Minimum Pitch Note</label>
+						<select class="minPitch" name="minPitch" id="minPitch2"></select>
+
+					</fieldset>
+				</div>
+				<div class="span3">
+					<fieldset>
+						<label for="maxPitch2">Maximum Pitch Note</label>
+						<select name="maxPitch2" id="maxPitch2" class="maxPitch"></select>
+					</fieldset>
+				</div>
+				<div class="span3">
+					<fieldset>
+						<label for="oscilType2">Signal type</label>
+						<select name="oscilType2" id="oscilType2" class="oscilType">
+							<option value="triangle">Triangle</option>
+							<option value="square">Square</option>
+							<option value="sine">Sine</option>
+							<option value="sawtooth">Sawtooth</option>
+						</select>
+					</fieldset>
+				</div>
+				<div class="span3">
+					<fieldset>
+						<label for="snap2">Snap</label>
+						<input type="checkbox" name="snap2" id="snap2" class="snap"/>
+					</fieldset>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="span12">
+					<div class="freq-container freq2"></div>
 				</div>
 			</div>
 		</div>

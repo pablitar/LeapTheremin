@@ -1,6 +1,6 @@
 (function() {
 
-	var self = window.Theremin = function() {
+	window.Theremin = function() {
 		$.extend(this, {
 			absoluteMinPitch : 36,
 			absoluteMaxPitch : 96,

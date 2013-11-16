@@ -1,6 +1,6 @@
 function ConfigurationForm(containerSelector, theremin) {
-	var minPitchSelector = '#minPitch';
-	var maxPitchSelector = '#maxPitch';
+	var minPitchSelector = '.minPitch';
+	var maxPitchSelector = '.maxPitch';
 	
 	this.$el = $(containerSelector);
 	this.theremin = theremin;
@@ -51,7 +51,7 @@ function ConfigurationForm(containerSelector, theremin) {
 	};
 	
 	this.bindSnap = function() {
-		this.bindCheckbox('#snap', this.theremin, 'snap');
+		this.bindCheckbox('.snap', this.theremin, 'snap');
 	};
 	
 	this.bindSelects = function() {
@@ -61,10 +61,10 @@ function ConfigurationForm(containerSelector, theremin) {
 	};
 	
 	this.bindSignalType = function() {
-		var $oscil = this.$el.find('#oscilType');
+		var $oscil = this.$el.find('.oscilType');
 		$oscil.val(this.theremin.getType());
 		$oscil.on('change', function() {
-			self.theremin.setType(self.getValue('#oscilType'));
+			self.theremin.setType(self.getValue('.oscilType'));
 		});
 	};
 	

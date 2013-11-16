@@ -7,7 +7,7 @@
 	var self = window.Main = {
 		connected : false,
 		stabilized : false,
-		theremin : new Theremin()
+		theremins : [ {hand:null, theremin: new Theremin()}, {hand:null, theremin: new Theremin()}],
 	};
 	
 	self.isConnected = function() {
@@ -37,16 +37,39 @@
 		return self.stabilized?aHand.stabilizedPalmPosition:aHand.palmPosition;
 	};
 	
+	self.updateTheremins = function() {
+		self.theremins.forEach(function(assoc){
+			if(assoc.hand) {
+				var position = self.getPosition(assoc.hand);
+				var relativeHeight = Math.max((position[Y] - 100) / 300, 0);
+				var relativeDepth = Math.max(((-position[Z] + 100) / 60),0);
+					
+				assoc.theremin.play(relativeHeight, relativeDepth);
+			} else {
+				assoc.theremin.stop();
+			}
+		});
+	};
+	
 	self.checkHands = function(frame) {
-		if(frame.hands.length > 0) {
-			var position = self.getPosition(frame.hands[0]);
-			var relativeHeight = Math.max((position[Y] - 100) / 300, 0);
-			var relativeDepth = Math.max(((-position[Z] + 100) / 60),0);
-			
-			self.theremin.play(relativeHeight, relativeDepth);
-		} else {
-			self.theremin.stop();
-		}
+		var freeTheremins = self.theremins.slice(0);
+		var freeHands = frame.hands.filter(function(aHand){
+			return !self.theremins.some(function(assoc){
+				if(assoc.hand && assoc.hand.id == aHand.id){
+					assoc.hand = aHand;
+					freeTheremins.splice(freeTheremins.indexOf(assoc), 1);
+					return true;
+				} else {
+					return false;
+				}
+			});
+		});
+		
+		freeTheremins.forEach(function(assoc) {
+			assoc.hand = freeHands.splice(0,1)[0];
+		});
+		
+		self.updateTheremins();
 	};
 
 	self.initController = function() {
@@ -72,7 +95,9 @@
 	
 	self.restartController();
 	
-	var freqView = new FrequencyViewer('.freq-container', self.theremin);
+	new FrequencyViewer('.freq1', self.theremins[0].theremin);
+	new FrequencyViewer('.freq2', self.theremins[1].theremin);
 	
-	var configForm = new ConfigurationForm('.config-container', self.theremin);
+	new ConfigurationForm('.conf1', self.theremins[0].theremin);
+	new ConfigurationForm('.conf2', self.theremins[1].theremin);
 })();
