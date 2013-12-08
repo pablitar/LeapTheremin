@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Leap Theremin</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<!-- Bootstrap -->
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<link href="css/main.css" rel="stylesheet">
+
+		<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+		<!--[if lt IE 9]>
+		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+		<script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+		<![endif]-->
+	</head>
+	<body>
+		<div class="container">
+			<h1>Leap Simple Theremin</h1>
+			<div class="row config-container conf1">
+				<div class="span3">
+					<fieldset>
+						<label for="minPitch">Minimum Pitch Note</label>
+						<select name="minPitch" id="minPitch" class="minPitch"></select>
+
+					</fieldset>
+				</div>
+				<div class="span3">
+					<fieldset>
+						<label for="maxPitch">Maximum Pitch Note</label>
+						<select name="maxPitch" id="maxPitch" class="maxPitch"></select>
+					</fieldset>
+				</div>
+				<div class="span3">
+					<fieldset>
+						<label for="oscilType">Signal type</label>
+						<select name="oscilType" id="oscilType" class="oscilType">
+							<option value="triangle">Triangle</option>
+							<option value="square">Square</option>
+							<option value="sine">Sine</option>
+							<option value="sawtooth">Sawtooth</option>
+						</select>
+					</fieldset>
+				</div>
+				<div class="span3">
+					<fieldset>
+						<label for="snap">Snap</label>
+						<input type="checkbox" name="snap" id="snap" class="snap" />
+					</fieldset>
+				</div>
+			</div>
+			<div class="row">
+				<div class="span12">
+					<div class="freq-container freq1"></div>
+				</div>
+			</div>
+
+			<div class="row config-container conf2">
+				<div class="span3">
+					<fieldset>
+						<label for="minPitch2">Minimum Pitch Note</label>
+						<select class="minPitch" name="minPitch" id="minPitch2"></select>
+
+					</fieldset>
+				</div>
+				<div class="span3">
+					<fieldset>
+						<label for="maxPitch2">Maximum Pitch Note</label>
+						<select name="maxPitch2" id="maxPitch2" class="maxPitch"></select>
+					</fieldset>
+				</div>
+				<div class="span3">
+					<fieldset>
+						<label for="oscilType2">Signal type</label>
+						<select name="oscilType2" id="oscilType2" class="oscilType">
+							<option value="triangle">Triangle</option>
+							<option value="square">Square</option>
+							<option value="sine">Sine</option>
+							<option value="sawtooth">Sawtooth</option>
+						</select>
+					</fieldset>
+				</div>
+				<div class="span3">
+					<fieldset>
+						<label for="snap2">Snap</label>
+						<input type="checkbox" name="snap2" id="snap2" class="snap"/>
+					</fieldset>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="span12">
+					<div class="freq-container freq2"></div>
+				</div>
+			</div>
+		</div>
+
+		<script src="js/jquery-2.0.3.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<script src="js/leap.js"></script>
+		<script src="js/WAAX.min.js"></script>
+		<script src="js/behaviours.js"></script>
+		<script src="js/frequencyViewer.js"></script>
+		<script src="js/theremin.js"></script>
+		<script src="js/ConfigurationForm.js"></script>
+		<script src="js/main.js"></script>
+
+	</body>
+</html>

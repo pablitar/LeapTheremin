@@ -1,0 +1,16 @@
+.freq-container {
+	width: 100%;
+	background-image: linear-gradient(to left, #EEEEEE 0%, #9999FF 100%);
+	position: relative;
+	height: 50px;
+}
+
+.freq-container .pitch-element {
+	border-left: 1px solid;
+	position: absolute;
+	padding: 5px;
+	font-weight: bold;
+	font-size: 20px;
+	height: 40px;
+	vertical-align: middle;
+}
